@@ -1,0 +1,46 @@
+.modal {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transform: translateY(100%);
+}
+
+.react-router-modal__wrapper {
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+}
+
+.react-router-modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.2;
+}
+
+.react-router-modal__backdrop--in {
+  opacity: 0.6;
+  transition: opacity linear 200ms;
+}
+
+.react-router-modal__backdrop--out {
+  opacity: 0;
+  transition: opacity linear 300ms;
+}
+
+.react-router-modal__modal--in {
+  transition: transform cubic-bezier(0.17, 0.96, 0.36, 0.99) 300ms;
+  transform: translateY(0%);
+}
+
+.react-router-modal__modal--out {
+  transition: transform cubic-bezier(0.17, 0.96, 0.36, 0.99) 300ms;
+  transform: translateY(100%);
+}
