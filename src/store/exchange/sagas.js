@@ -26,6 +26,7 @@ function* worker(action) {
     yield put(actions.changeToValue(toValue))
   }
   const country1 = yield select(getCountry1)
+  const country2 = yield select(getCountry2)
   const res = yield call(
     fetch,
     `https://api.exchangeratesapi.io/latest?base=${country1.currencies.code}`,
@@ -33,6 +34,11 @@ function* worker(action) {
   try {
     const result = yield call([res, res.json])
     console.log('result', result.rates)
+    let value
+    Object.keys(result.rates).forEach(function eachKey(key) {
+      if (key === country2.currencies.code) value = result.rates[key]
+    })
+    yield put(actions.changeRate(value))
   } catch (e) {}
 }
 

@@ -19,7 +19,7 @@ const initialState = {
     title: 'United Kingdom of Great Britain and Northern Ireland',
   },
   country: 1,
-  exchangeRate: 0.012,
+  exchangeRate: 0.1,
 }
 
 export const reducer = createReducer(
