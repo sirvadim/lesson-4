@@ -1,7 +1,7 @@
-import { takeEvery, select, put } from 'redux-saga/effects'
+import { takeEvery, select, put, call } from 'redux-saga/effects'
 
 import * as actions from './actions'
-import { getExchangeRate } from './selectors'
+import { getExchangeRate, getCountry1, getCountry2 } from './selectors'
 
 function* worker(action) {
   const { value, convertDirection } = action.payload
@@ -25,6 +25,16 @@ function* worker(action) {
     yield put(actions.changeFromValue(fromValue))
     yield put(actions.changeToValue(toValue))
   }
+  console.log('hello')
+  const country1 = yield select(getCountry1)
+  const res = yield call(
+    fetch,
+    `https://api.exchangeratesapi.io/latest?base=${country1.currencies.code}`,
+  )
+  try {
+    const result = yield call([res, res.json])
+    console.log('result', result.rates)
+  } catch (e) {}
 }
 
 export function* exchangeWatcher() {
