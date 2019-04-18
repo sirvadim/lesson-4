@@ -61,7 +61,7 @@ export const Exchange = ({
           }
           tip="Текст подсказки к полю"
           value={fromValue}
-          endAdornment="₽"
+          endAdornment={country1.currencies.symbol}
         />
         <HBox />
         <TextField
@@ -73,7 +73,7 @@ export const Exchange = ({
           }
           value={toValue}
           tip="Текст подсказки к полю"
-          endAdornment="£"
+          endAdornment={country2.currencies.symbol}
         />
         <HBox />
         <DeliveryTime
