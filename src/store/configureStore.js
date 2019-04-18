@@ -9,7 +9,7 @@ import { createRootReducer } from './rootReducer'
 import { rootSaga } from './rootSaga'
 
 const persistConfig = {
-  key: 'root1',
+  key: 'sirvadim',
   storage: LocalForage,
   blacklist: ['router'],
 }
