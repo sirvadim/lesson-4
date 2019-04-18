@@ -56,6 +56,10 @@ export const reducer = createReducer(
       ...state,
       country: payload,
     }),
+    [actions.changeRate]: (state, payload) => ({
+      ...state,
+      exchangeRate: payload,
+    }),
   },
   initialState,
 )

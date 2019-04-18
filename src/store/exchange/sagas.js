@@ -25,7 +25,6 @@ function* worker(action) {
     yield put(actions.changeFromValue(fromValue))
     yield put(actions.changeToValue(toValue))
   }
-  console.log('hello')
   const country1 = yield select(getCountry1)
   const res = yield call(
     fetch,
