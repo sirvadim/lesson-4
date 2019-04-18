@@ -9,8 +9,8 @@ const Container = styled.div`
   border-bottom: 1px ${({ theme }) => theme.pallete.divider} solid;
 `
 
-export const Country = ({ title, id, onPress }) => (
-  <Container onClick={() => onPress(id)}>
+export const Country = ({ title, id, currencies, onPress }) => (
+  <Container onClick={() => onPress(title, id, currencies)}>
     <Body2>{title}</Body2>
   </Container>
 )
@@ -18,5 +18,6 @@ export const Country = ({ title, id, onPress }) => (
 Country.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.string,
+  arr: PropTypes.array,
   onPress: PropTypes.func.isRequired,
 }

@@ -31,6 +31,7 @@ class App extends Component {
                   <Route path={routes.SIGN_IN} exact component={SignIn} />
                   <Route path={routes.CONFIRM} component={SignInConfirm} />
                   <Route path={routes.EXCHANGE} component={Exchange} />
+                  {/* <Route path={routes.SELECT} component={SelectCountry} /> */}
                 </Switch>
                 <ModalRoute
                   path={routes.SELECT}

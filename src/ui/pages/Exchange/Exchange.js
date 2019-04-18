@@ -23,8 +23,11 @@ export const Exchange = ({
   toValue,
   fromTime,
   toTime,
+  country1,
+  country2,
   changeTerms,
   changeValuesTrigger,
+  changeCountryFlag,
   push,
 }) => (
   <PageTemplate>
@@ -33,27 +36,41 @@ export const Exchange = ({
       <Wrapper>
         <SelectField
           label="Страна 1"
-          value="Россия"
-          onPress={() => push(`${routes.SELECT}`)}
+          value={country1.title}
+          onPress={() => {
+            push(`${routes.SELECT}`)
+            changeCountryFlag(1)
+          }}
         />
         <SelectField
           label="Страна 2"
-          value="Англия"
-          onPress={() => push(`${routes.SELECT}`)}
+          value={country2.title}
+          onPress={() => {
+            push(`${routes.SELECT}`)
+            changeCountryFlag(2)
+          }}
         />
         <Divider />
         <HBox />
         <TextField
-          label="Российский рубль (RUB)"
-          onChange={value => changeValuesTrigger({ value, convertDirection: 'from' })}
+          label={
+            country1.currencies.name + ' (' + country1.currencies.code + ')'
+          }
+          onChange={value =>
+            changeValuesTrigger({ value, convertDirection: 'from' })
+          }
           tip="Текст подсказки к полю"
           value={fromValue}
           endAdornment="₽"
         />
         <HBox />
         <TextField
-          label="Фунт стерлингов (GBP)"
-          onChange={value => changeValuesTrigger({ value, convertDirection: 'to' })}
+          label={
+            country2.currencies.name + ' (' + country2.currencies.code + ')'
+          }
+          onChange={value =>
+            changeValuesTrigger({ value, convertDirection: 'to' })
+          }
           value={toValue}
           tip="Текст подсказки к полю"
           endAdornment="£"

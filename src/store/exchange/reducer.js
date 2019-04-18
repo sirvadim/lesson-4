@@ -8,6 +8,17 @@ const initialState = {
   toTime: '10:00',
   fromValue: '100',
   toValue: '1',
+  country1: {
+    currencies: { code: 'RUB', name: 'Russian ruble', symbol: '₽' },
+    id: 'RU',
+    title: 'Russian Federation',
+  },
+  country2: {
+    currencies: { code: 'GBP', name: 'British pound', symbol: '£' },
+    id: 'GB',
+    title: 'United Kingdom of Great Britain and Northern Ireland',
+  },
+  country: 1,
   exchangeRate: 0.012,
 }
 
@@ -32,7 +43,19 @@ export const reducer = createReducer(
     [actions.changeToTime]: (state, payload) => ({
       ...state,
       toTime: payload,
-    })
+    }),
+    [actions.changeCountry1]: (state, payload) => ({
+      ...state,
+      country1: payload,
+    }),
+    [actions.changeCountry2]: (state, payload) => ({
+      ...state,
+      country2: payload,
+    }),
+    [actions.changeCountryFlag]: (state, payload) => ({
+      ...state,
+      country: payload,
+    }),
   },
   initialState,
 )

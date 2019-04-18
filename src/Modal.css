@@ -15,6 +15,10 @@
   z-index: 5;
 }
 
+.react-router-modal__container {
+  top: 0;
+}
+
 .react-router-modal__backdrop {
   position: absolute;
   top: 0;
