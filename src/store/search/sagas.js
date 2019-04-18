@@ -1,5 +1,4 @@
 import { takeEvery, select, put, call, delay, all } from 'redux-saga/effects'
-
 import * as actions from './actions'
 import { getInputData, getHistory } from './selectors'
 import { changeCountry1, changeCountry2 } from '../exchange/actions'
@@ -30,11 +29,11 @@ function* workerInput(action) {
   const inputData = yield select(getInputData)
   console.log('input', inputData)
   if (inputData) {
-    const res = yield call(
-      fetch,
-      `https://restcountries.eu/rest/v2/name/${inputData}?fields=name;currencies;alpha2Code`,
-    )
     try {
+      const res = yield call(
+        fetch,
+        `https://restcountries.eu/rest/v2/name/${inputData}?fields=name;currencies;alpha2Code`,
+      )
       const result = yield call([res, res.json])
       console.log('result', result)
       let countries = result

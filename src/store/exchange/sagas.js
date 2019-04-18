@@ -27,11 +27,11 @@ function* worker(action) {
   }
   const country1 = yield select(getCountry1)
   const country2 = yield select(getCountry2)
-  const res = yield call(
-    fetch,
-    `https://api.exchangeratesapi.io/latest?base=${country1.currencies.code}`,
-  )
   try {
+    const res = yield call(
+      fetch,
+      `https://api.exchangeratesapi.io/latest?base=${country1.currencies.code}`,
+    )
     const result = yield call([res, res.json])
     console.log('result', result.rates)
     let value
